@@ -1,0 +1,23 @@
+.wordLetter {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 2em;    
+    font-weight: bold;
+    text-align: center;
+}
+
+#word {
+    margin-bottom: 0px;
+}
+
+#guesses {
+    font-size: 1.5em;
+    letter-spacing: 1.1em;
+    margin-bottom: .5em;
+}
+
+h2:last-of-type {
+    margin-bottom: .25em;
+}
+
+
