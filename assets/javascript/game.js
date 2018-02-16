@@ -7,20 +7,20 @@ var currWord = words[Math.floor(Math.random() * words.length)];
 var correct = 0;
 var incorrect = 0;
 
-$(document).ready(function() {
+$(document).ready(function () {
 
     //Get random word on page load
     newWord();
     //'New Word' button. Resets to defaults and creates new word.
-    $('#reset').on('click', function() {
+    $('#reset').on('click', function () {
         newWord();
-    });   
+    });
 
     // Get user input
-    $(document).keypress(function(event) {
+    $(document).keypress(function (event) {
         var userInput = String.fromCharCode(event.which);
         // Test if user input is valid alphabetical character
-        if (alphabet.includes(userInput) && !guesses.includes(userInput)) {    
+        if (alphabet.includes(userInput) && !guesses.includes(userInput)) {
             guesses.push(userInput);
             // Loop through the current word to see if the user input matches any characters
             for (i = 0; i < currWord.length; i++) {
@@ -28,16 +28,14 @@ $(document).ready(function() {
                     //If guessed correctly, reveal letter and increment correct
                     $('#word span:nth-of-type(' + (i + 1) + ')').text(userInput);
                     correct++
-                        //Check win condition
-                        setTimeout(function() {
-                            if (correct === currWord.length) {
+                    //Check win condition
+                    setTimeout(function () {
+                        if (correct === currWord.length) {
                             var playAgain = alert("YOU WIN!!!");
-                            newWord();           
-                            }
-                            else{}
-                        }), 500;
-                }
-                else{}
+                            newWord();
+                        } else {}
+                    }), 500;
+                } else {}
             }
             //If guessed incorrectly, display under guessed letters and increment incorrect
             if (!currWord.includes(userInput)) {
@@ -46,16 +44,14 @@ $(document).ready(function() {
                 incorrect++
                 $("img").attr("src", images[incorrect]);
                 //Check lose condition
-                setTimeout(function() {
+                setTimeout(function () {
                     if (incorrect >= 6) {
-                    var playAgain = alert("Oh no, you lost! Your word was " + currWord);
-                    newWord();
-                    }
-                    else{}
+                        var playAgain = alert("Oh no, you lost! Your word was " + currWord);
+                        newWord();
+                    } else {}
                 }, 500);
             }
-        }
-        else{}
+        } else {}
     });
 
     //Function to reset everything to defaults
@@ -72,12 +68,12 @@ $(document).ready(function() {
         $('#word').empty();
         $('#guesses').empty();
         //Create spans for new word
-        for (i = 0; i < currWord.length; i++) {   
+        for (i = 0; i < currWord.length; i++) {
             var newSpan = $('<span>');
             $(newSpan).text("_");
-            newSpan.addClass('wordLetter');   
+            newSpan.addClass('wordLetter');
             $('#word').append(newSpan);
         };
-    };    
+    };
 
 });
