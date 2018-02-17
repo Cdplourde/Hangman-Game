@@ -6,6 +6,8 @@ var guesses = [];
 var currWord = words[Math.floor(Math.random() * words.length)];
 var correct = 0;
 var incorrect = 0;
+var wins = 0;
+var losses = 0;
 
 $(document).ready(function () {
 
@@ -32,9 +34,11 @@ $(document).ready(function () {
                     setTimeout(function () {
                         if (correct === currWord.length) {
                             var playAgain = alert("YOU WIN!!!");
+                            wins++;
+                            $("#wins").text("Wins: " + wins);
                             newWord();
                         } else {}
-                    }), 500;
+                    }), 500; 
                 } else {}
             }
             //If guessed incorrectly, display under guessed letters and increment incorrect
@@ -47,9 +51,11 @@ $(document).ready(function () {
                 setTimeout(function () {
                     if (incorrect >= 6) {
                         var playAgain = alert("Oh no, you lost! Your word was " + currWord);
+                        losses++
+                        $("#losses").text("Losses: " + losses);
                         newWord();
                     } else {}
-                }, 500);
+                }), 500;
             }
         } else {}
     });

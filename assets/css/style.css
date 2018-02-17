@@ -1,3 +1,7 @@
+body {
+    text-align: center;
+}
+
 .wordLetter {
     display: inline-block;
     margin-right: 10px;
@@ -20,4 +24,6 @@ h2:last-of-type {
     margin-bottom: .25em;
 }
 
-
+p {
+    font-size: 1.2em;
+}
